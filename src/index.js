@@ -1,7 +1,7 @@
 
 
 // ReactDOM.render(<App videos={window.InitData}/>,document.getElementById('app'));
-ReactDOM.render(<App videos={window.exampleVideoData}/>,document.getElementById('app'));
+ReactDOM.render(<App videos={window.exampleVideoData} searchYouTube={window.searchYouTube}/>,document.getElementById('app'));
 
 
 

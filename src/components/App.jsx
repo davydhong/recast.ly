@@ -1,11 +1,11 @@
-var searchYT = function(text){
-    var Option = {
-    key: window.YOUTUBE_API_KEY,
-    query: text,
-    max: 10
-    };
-  return searchYouTube(Option,(val)=>val).items;
-};
+// var searchYT = function(text){
+//     var Option = {
+//     key: window.YOUTUBE_API_KEY,
+//     query: text,
+//     max: 10
+//     };
+//   return searchYouTube(Option,(val)=>val);
+// };
 
 
 class App extends React.Component {
@@ -20,13 +20,18 @@ class App extends React.Component {
   }
 
 handleFilterTextChange(filterText) {
-  // console.log(filterText);
-  //   this.setState({
-  //     videos: searchYT(filterText.target.value)
-  //   });
-    console.log(filterText.target)
-    // console.log(searchYT(filterText.target.value))
+    var option = {
+    key: window.YOUTUBE_API_KEY,
+    query: filterText.target.value,
+    max: 10
+    };
 
+
+    this.props.searchYouTube( option, (data)=>{
+      this.setState({
+       videos: data,
+       currentlyPlaying: data[1]
+     })})
 }
 
 
@@ -42,8 +47,8 @@ render() {
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
             <Search
-              filterText={this.state.filterText}
-              onFilterTextChange={this.handleFilterTextChange} />
+              onFilterTextChange={this.handleFilterTextChange} 
+            />
           </div>
         </nav>
         <div className="row">

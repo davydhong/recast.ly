@@ -3,8 +3,7 @@ var Search = (props) => (
     <input className="form-control" 
     placeholder="Search Youtube"
     type="text"
-    onChange= {
-    props.onFilterTextChange 
+    onChange= {props.onFilterTextChange 
     } />
     <button className="btn hidden-sm-down">
       <span className="glyphicon glyphicon-search"></span>
